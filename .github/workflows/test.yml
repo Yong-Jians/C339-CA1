@@ -25,10 +25,10 @@ jobs:
         - name: Check for package vunerabilties
           run: pip-audit
 
-        - name: Check code quality
-          run : python -m ruff check .
-
         - name: Run tests
           run: python -m pytest -v
+
+        - name: Check code quality
+          run : python -m ruff check .
 
         
