@@ -20,10 +20,13 @@ jobs:
 
         
         - name: Install needed packages
-          run: pip install pytest pip-audit
+          run: pip install pytest pip-audit ruff
 
         - name: Check for package vunerabilties
           run: pip-audit
+
+        - name: Check code quality
+          run : python -m ruff check .
 
         - name: Run tests
           run: python -m pytest -v
