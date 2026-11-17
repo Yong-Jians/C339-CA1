@@ -16,11 +16,14 @@ jobs:
         - name: setup python
           uses: actions/setup-python@v5
           with:
-            python-version: '3.12'
+            python-version: '3.12' 
 
         
-        - name: Install pytest
-          run: pip install pytest
+        - name: Install needed packages
+          run: pip install pytest pip install pip-audit
+
+        - name: Check for package vunerabilties
+          run: pip audit
 
         - name: Run tests
           run: python -m pytest -v
