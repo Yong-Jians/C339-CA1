@@ -1,0 +1,30 @@
+name : CI pytest workflow
+
+on:
+    push:
+        branches: [main]
+
+
+jobs:
+    tests:
+     runs-on: ubuntu-latest
+
+     steps:
+        - name: Checkout repository
+          uses: actions/checkout@v7
+
+        - name: setup python
+          uses: actions/setup-python@v7
+          with:
+            python-version: '3.12' 
+
+        
+        - name: Install pytest
+          run: pip install pytest
+
+
+        - name: Run tests
+          run: python -m pytest -v
+
+
+        

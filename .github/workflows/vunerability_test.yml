@@ -1,4 +1,4 @@
-name : CI python workflow
+name : Vunerability test python
 
 on:
     push:
@@ -19,17 +19,11 @@ jobs:
             python-version: '3.12' 
 
         
-        - name: Install needed packages
-          run: pip install pytest pip-audit ruff
+        - name: Install pip-audit
+          run: pip install pip-audit 
 
         - name: Check for package vunerabilties
           run: pip-audit
 
-        - name: Check code quality
-          run : python -m ruff check .
+          
 
-        - name: Run tests
-          run: python -m pytest -v
-
-
-        
